@@ -3,7 +3,7 @@
 
   <!-- Home Page -->
   <url>
-    <loc>https://codelite.netlify.app/</loc>
+    <loc>https://codelite-studio.netlify.app/</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- Console Page -->
   <url>
-    <loc>https://codelite.netlify.app/console.html</loc>
+    <loc>https://codelite-studio.netlify.app/console.html</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
 
   <!-- Docs Page -->
   <url>
-    <loc>https://codelite.netlify.app/docs.html</loc>
+    <loc>https://codelite-studio.netlify.app/docs.html</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -27,7 +27,7 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://codelite.netlify.app/about.html</loc>
+    <loc>https://codelite-studio.netlify.app/about.html</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

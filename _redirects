@@ -1,0 +1,8 @@
+# Clean URLs
+/about    /about.html    200
+/contact  /contact.html  200
+/console  /console.html  200
+/docs     /docs.html     200
+
+# Optional: fallback for unknown URLs
+/*        /index.html    200

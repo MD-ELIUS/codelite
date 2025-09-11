@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeLite – Online HTML, CSS & JavaScript Editor</title>
+
+  <meta name="description" content="Write, test, and preview your HTML, CSS, and JavaScript code instantly with CodeLite online editor. Perfect for students, developers, and hobbyists.">
+<meta name="keywords" content="CodeLite, online code editor, HTML editor, CSS editor, JavaScript editor, live preview, web development">
+<meta name="author" content="Mohammad Elius">
+
+<!-- Open Graph -->
+<meta property="og:title" content="CodeLite – Online HTML, CSS & JS Editor">
+<meta property="og:description" content="Write, test, and preview your HTML, CSS, and JavaScript code instantly with CodeLite online editor.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://codelite.netlify.app/">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CodeLite – Online HTML, CSS & JS Editor">
+<meta name="twitter:description" content="Write, test, and preview your HTML, CSS, and JavaScript code instantly with CodeLite online editor.">
+
+<!-- Structured Data for Home Page -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CodeLite",
+  "url": "https://codelite.netlify.app/",
+  "description": "Write, test, and preview your HTML, CSS, and JavaScript code instantly with CodeLite online editor.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://codelite.netlify.app/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+  <!-- Favicon -->
+   <link rel="icon" type="image/png" href="assets/logo2.png">
+
+
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CodeMirror CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+
+
+  <!-- JSZip for ZIP download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+</head>
+<body class="bg-white text-gray-100">
+
+ <!-- Navbar -->
+<header class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg fixed top-0 left-0 right-0 z-50">
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center space-x-2">
+        <a href="index.html" class="flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-md">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </a>
+        <a href="index.html" class="text-xl font-bold tracking-wide">CodeLite</a>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-6 text-sm font-medium">
+        <a href="index.html" class="hover:text-gray-200 transition">Home</a>
+        <a href="console.html" class="hover:text-gray-200 transition">Console</a>
+        <a href="docs.html" class="hover:text-gray-200 transition">Docs</a>
+        <a href="about.html" class="hover:text-gray-200 transition">About Us</a>
+        <a href="contact.html" class="hover:text-gray-200 transition">Contact</a>
+      </nav>
+
+      <!-- Hamburger Button (Mobile) -->
+      <div class="md:hidden flex items-center">
+        <button id="hamburgerBtn" class="focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden mt-2 flex flex-col space-y-2">
+      <a href="index.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Home</a>
+      <a href="console.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Console</a>
+      <a href="docs.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Docs</a>
+      <a href="about.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">About</a>
+      <a href="contact.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Contact</a>
+    </div>
+  </div>
+</header>
+
+  <!-- Add top padding so content isn't hidden behind fixed navbar -->
+  <div class="pt-16"></div>
+
+<!-- Hero Section -->
+<!-- Hero Section -->
+<section class="relative text-gray-900 py-20 overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <!-- Hero Title -->
+    <h1 class="text-4xl md:text-6xl font-extrabold text-purple-600 leading-tight">
+      CodeLite Editor
+    </h1>
+    <!-- Subtitle -->
+    <p class="mt-4 text-lg sm:text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto">
+      Write, Run, and Download HTML, CSS, and JavaScript code instantly. Streamline your workflow efficiently.
+    </p>
+    <!-- Call to Action -->
+    <div class="mt-8 flex justify-center gap-4 flex-wrap">
+      <a href="#htmlEditor" 
+         class="bg-purple-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-purple-700 transition-all duration-200">
+        Start Coding
+      </a>
+      <a href="coming-soon.html" 
+         class="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-200">
+        Download App
+      </a>
+    </div>
+  </div>
+
+<!-- Floating Coding Icons Around Hero Text -->
+<div class="absolute inset-0 pointer-events-none z-0">
+  <!-- Top Row -->
+  <i class="fab fa-html5 text-5xl text-orange-400 absolute top-[10%] left-[10%] opacity-20"></i>
+  <i class="fab fa-css3-alt text-5xl text-blue-500 absolute top-[12%] left-[40%] opacity-20"></i>
+  <i class="fab fa-js-square text-5xl text-yellow-400 absolute top-[8%] left-[70%] opacity-20"></i>
+  
+  <!-- Middle Left & Right -->
+  <i class="fab fa-html5 text-5xl text-orange-400 absolute top-[40%] left-[5%] opacity-20"></i>
+  <i class="fab fa-css3-alt text-5xl text-blue-500 absolute top-[45%] right-[5%] opacity-20"></i>
+  
+  <!-- Bottom Row -->
+  <i class="fab fa-js-square text-5xl text-yellow-400 absolute bottom-[10%] left-[20%] opacity-20"></i>
+  <i class="fab fa-html5 text-5xl text-orange-400 absolute bottom-[12%] left-[50%] opacity-20"></i>
+  <i class="fab fa-css3-alt text-5xl text-blue-500 absolute bottom-[8%] right-[15%] opacity-20"></i>
+</div>
+
+</section>
+
+
+<section id="features" class="relative bg-white py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl md:text-4xl font-extrabold text-purple-600">Why Use CodeLite?</h2>
+     <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+  Experience a seamless, instant coding environment with HTML, CSS, and JavaScript editors, 
+  complete with a live JavaScript console for testing, debugging, and learning your code in real time.
+</p>
+
+    </div>
+    
+    <!-- Updated: use grid for better width control on desktop -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+      <div class="feature-card bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-6 rounded-xl shadow-lg opacity-0 transform translate-y-10">
+        <h3 class="text-xl font-bold mb-2">Instant Code Preview</h3>
+        <p class="text-sm">See the output of your code immediately as you type, without refreshing.</p>
+      </div>
+      
+      <div class="feature-card bg-gradient-to-r from-green-400 to-teal-500 text-white p-6 rounded-xl shadow-lg opacity-0 transform translate-y-10">
+        <h3 class="text-xl font-bold mb-2">HTML, CSS & JS Support</h3>
+        <p class="text-sm">Write and test all three core web technologies in one place efficiently.</p>
+      </div>
+      
+      <div class="feature-card bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-6 rounded-xl shadow-lg opacity-0 transform translate-y-10">
+        <h3 class="text-xl font-bold mb-2">Download Your Code</h3>
+        <p class="text-sm">Easily export your files or ZIP your project to continue offline.</p>
+      </div>
+      
+      <div class="feature-card bg-gradient-to-r from-pink-500 to-red-500 text-white p-6 rounded-xl shadow-lg opacity-0 transform translate-y-10">
+        <h3 class="text-xl font-bold mb-2">Copy & Share</h3>
+        <p class="text-sm">Copy code snippets quickly and share with teammates or instructors.</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+
+  </script>
+</section>
+
+  <!-- Editors Section -->
+  <div class="flex flex-col mx-4 sm:mx-6 lg:mx-8 space-y-6 mt-10">
+
+<h2 class="text-2xl md:text-4xl font-extrabold text-purple-600 text-center mb-8">
+  Interactive Coding Workspace
+</h2>
+    <!-- HTML Editor -->
+    <div class="flex flex-col h-64 md:h-[300px] lg:[380px] xl:h-[450px] 2xl:h-[500px]">
+      <div class="flex justify-between items-center bg-white py-1 text-sm border-b border-gray-200 shadow-sm">
+        <span class="text-slate-800 font-semibold tracking-wide uppercase text-sm">Write html Code</span>
+        <div class="flex gap-2">
+          <button class="copy-btn flex items-center gap-1 px-2 py-1 text-gray-700 hover:text-white hover:bg-gray-600 rounded-md shadow-sm transition duration-150" onclick="copyCode(htmlEditor, this)">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span>Copy code</span>
+          </button>
+          <button onclick="downloadFile(htmlEditor.getValue(),'index.html')" class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium px-3 py-1.5 rounded-md shadow-md transition-all duration-200 transform hover:scale-105">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+            </svg>
+            Download
+          </button>
+        </div>
+      </div>
+      <div id="htmlEditor" class="flex-1 overflow-auto border border-gray-200 rounded-xl bg-gray-50"></div>
+    </div>
+
+    <!-- CSS Editor -->
+    <div class="flex flex-col h-64 md:h-[300px] lg:[380px] xl:h-[450px] 2xl:h-[500px]">
+      <div class="flex justify-between items-center bg-white py-1 text-sm border-b border-gray-200 shadow-sm">
+        <span class="text-slate-800 font-semibold tracking-wide uppercase text-sm">Write CSS Code</span>
+        <div class="flex gap-2">
+          <button class="copy-btn flex items-center gap-1 px-2 py-1 text-gray-800 hover:text-white hover:bg-gray-700 rounded-md shadow-sm transition duration-150" onclick="copyCode(cssEditor, this)">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span>Copy code</span>
+          </button>
+          <button onclick="downloadFile(cssEditor.getValue(),'style.css')" class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium px-3 py-1.5 rounded-md shadow-md transition-all duration-200 transform hover:scale-105">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+            </svg>
+            Download
+          </button>
+        </div>
+      </div>
+      <div id="cssEditor" class="flex-1 overflow-auto rounded-xl"></div>
+    </div>
+
+    <!-- JS Editor -->
+    <div class="flex flex-col h-64 md:h-[300px] lg:[380px] xl:h-[450px] 2xl:h-[500px]">
+      <div class="flex justify-between items-center bg-white py-1 text-sm border-b border-gray-200 shadow-sm">
+        <span class="text-slate-800 font-semibold tracking-wide uppercase text-sm">Write JS Code</span>
+        <div class="flex gap-2">
+          <button class="copy-btn flex items-center gap-1 px-2 py-1 text-gray-700 hover:text-white hover:bg-gray-600 rounded-md shadow-sm transition duration-150" onclick="copyCode(editor, this)">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span>Copy code</span>
+          </button>
+          <button onclick="downloadFile(editor.getValue(),'script.js')" class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium px-3 py-1.5 rounded-md shadow-md transition-all duration-200 transform hover:scale-105">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+            </svg>
+            Download
+          </button>
+        </div>
+      </div>
+      <div id="editor" class="flex-1 overflow-auto border border-gray-200 rounded-xl bg-gray-50"></div>
+    </div>
+
+  </div>
+
+  <!-- Controls Section -->
+<div class="flex justify-center p-5 ">
+  <div class="flex flex-wrap justify-center gap-4">
+    <!-- Run Button -->
+    <button onclick="runCode()" 
+            class="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.76A1 1 0 007 8.236v7.528a1 1 0 001.234.972l6.518-3.76a1 1 0 000-1.736z"/>
+      </svg>
+      Run Code
+    </button>
+
+    <!-- Download ZIP Button -->
+    <button onclick="downloadZip()" 
+            class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+      </svg>
+      Download ZIP
+    </button>
+  </div>
+</div>
+
+
+ <!-- Footer -->
+
+<!-- Professional Footer with Gradient -->
+<footer class="bg-gradient-to-r from-purple-600 to-indigo-600 text-gray-100 mt-12">
+  <div class=" mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Brand & Description -->
+      <div class="md:text-center">
+        <h2 class="text-2xl font-extrabold text-white mb-3 tracking-wide">CodeLite</h2>
+<p class="text-gray-200 text-sm leading-relaxed">
+  CodeLite is a lightweight online code editor for HTML, CSS, and JavaScript with a built-in JavaScript console.
+    It’s built for instant practice, debugging, and rapid prototyping, offering real-time live preview so you can write, test, and refine your code seamlessly.
+</p>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="md:text-center">
+        <h3 class="text-lg font-semibold text-white mb-3">Quick Links</h3>
+        <ul class="space-y-2 text-gray-200 text-sm">
+          <li><a href="index.html" class="hover:text-gray-50 transition">Home</a></li>
+          <li><a href="console.html" class="hover:text-gray-50 transition">Console</a></li>
+          <li><a href="docs.html" class="hover:text-gray-50 transition">Documentation</a></li>
+          <li><a href="about.html" class="hover:text-gray-50 transition">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-gray-50 transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Socials -->
+     <div class="md:text-center md:justify-self-end">
+  <h3 class="text-lg font-semibold text-white mb-3">Contact Us</h3>
+<p class="text-gray-200 text-sm mb-2">
+  <i class="fas fa-envelope mr-2"></i>
+  <a href="mailto:help.codelite@gmail.com" class="hover:underline">help.codelite@gmail.com</a>
+</p>
+
+<p class="text-gray-200 text-sm mb-2">
+  <i class="fa-brands fa-whatsapp mr-2"></i>
+  <a href="https://wa.me/8801234567890" target="_blank" class="hover:underline">+880 1234 567890</a>
+</p>
+
+
+  <div class="flex justify-center mt-8 space-x-4 mt-4">
+    <a href="https://www.facebook.com/CodeLiteStudio/" class="w-10 h-10 flex items-center justify-center bg-purple-700 rounded-full hover:bg-purple-500 transition-all duration-200">
+      <i class="fab fa-facebook-f text-white"></i>
+    </a>
+    <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-700 rounded-full hover:bg-blue-400 transition-all duration-200">
+      <i class="fab fa-twitter text-white"></i>
+    </a>
+    <a href="https://github.com/CodeLiteStudio" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-gray-600 transition-all duration-200">
+      <i class="fab fa-github text-white"></i>
+    </a>
+    <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-800 rounded-full hover:bg-blue-600 transition-all duration-200">
+      <i class="fab fa-linkedin-in text-white"></i>
+    </a>
+  </div>
+</div>
+
+
+    </div>
+   
+    <!-- Divider -->
+
+<div class="border-t border-purple-400 mt-10 pt-6 text-center text-gray-300 text-sm font-light tracking-wide space-y-1">
+  <p>&copy; 2025 <span class="font-semibold text-white">CodeLite</span>. All rights reserved.</p>
+  <p class="text-white">Developed by <a href="https://www.facebook.com/elius320" class="font-medium">Muhammad Elius</a></p>
+</div>
+
+ </div>
+
+</footer>
+
+
+  <!-- File Name Modal -->
+  <div id="filenameModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-gray-800 text-white rounded-lg shadow-lg w-96 p-6 space-y-4">
+      <h2 class="text-lg font-semibold">Save File</h2>
+      <input id="filenameInput" type="text" class="w-full px-3 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter file name...">
+      <div class="flex justify-end gap-2">
+        <button onclick="closeFilenameModal()" class="px-4 py-2 rounded bg-gray-600 hover:bg-gray-500">Cancel</button>
+        <button onclick="confirmFilename()" class="px-4 py-2 rounded bg-blue-600 hover:bg-blue-500">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

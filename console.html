@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeLite Console – Run & Debug JavaScript Online</title>
+
+  <meta name="description" content="Use the CodeLite console to instantly run, debug, and test your JavaScript code. Perfect for experimentation and learning.">
+<meta name="keywords" content="CodeLite console, JavaScript console, run JS online, debug JS, online editor, live JS testing">
+<meta name="author" content="Mohammad Elius">
+
+<!-- Open Graph -->
+<meta property="og:title" content="CodeLite Console – Run & Debug JavaScript">
+<meta property="og:description" content="Use the CodeLite console to instantly run, debug, and test your JavaScript code.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://codelite.netlify.app/console.html">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CodeLite Console – Run & Debug JavaScript">
+<meta name="twitter:description" content="Use the CodeLite console to instantly run, debug, and test your JavaScript code.">
+
+<!-- Structured Data for Console Page -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "CodeLite Console",
+  "url": "https://codelite.netlify.app/console.html",
+  "description": "Use CodeLite Console to run, debug, and test your JavaScript code instantly in a professional online environment.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "CodeLite",
+    "url": "https://codelite.netlify.app/"
+  }
+}
+</script>
+
+    <!-- Favicon -->
+   <link rel="icon" type="image/png" href="assets/logo2.png">
+
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CodeMirror CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+
+  <style>
+    /* Custom scrollbar for console */
+    #console::-webkit-scrollbar {
+      width: 6px;
+    }
+    #console::-webkit-scrollbar-thumb {
+      background: #555;
+      border-radius: 4px;
+    }
+    .CodeMirror {
+      height: 100%;
+      font-size: 14px;
+     
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-100 flex flex-col min-h-screen">
+
+<!-- Navbar -->
+<header class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg fixed top-0 left-0 right-0 z-50">
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center space-x-2">
+        <a href="index.html" class="flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-md">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </a>
+        <a href="index.html" class="text-xl font-bold tracking-wide">CodeLite</a>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-6 text-sm font-medium">
+        <a href="index.html" class="hover:text-gray-200 transition">Home</a>
+        <a href="console.html" class="hover:text-gray-200 transition">Console</a>
+        <a href="docs.html" class="hover:text-gray-200 transition">Docs</a>
+        <a href="about.html" class="hover:text-gray-200 transition">About Us</a>
+        <a href="contact.html" class="hover:text-gray-200 transition">Contact</a>
+      </nav>
+
+      <!-- Hamburger Button (Mobile) -->
+      <div class="md:hidden flex items-center">
+        <button id="hamburgerBtn" class="focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden mt-2 flex flex-col space-y-2">
+      <a href="index.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Home</a>
+      <a href="console.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Console</a>
+      <a href="docs.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Docs</a>
+      <a href="about.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">About</a>
+      <a href="contact.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Contact</a>
+    </div>
+  </div>
+</header>
+
+  <!-- Hero Section -->
+<section class=" text-purple-600 py-16 mt-16">
+  <div class="container mx-auto px-6 text-center max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6">
+      JavaScript Console Runner
+    </h1>
+    <p class="text-lg md:text-xl text-gray-600 mb-8">
+  Perfect for testing snippets, debugging, and learning JavaScript in real time.
+</p>
+
+    <a href="#editor" 
+       class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg 
+              text-lg font-semibold shadow-md transition transform hover:scale-105 active:scale-95">
+      <i class="fa-solid fa-terminal"></i>
+      <span>Open Console</span>
+    </a>
+  </div>
+</section>
+
+
+  <!-- Main Content -->
+  <main class="flex-1 container mx-auto px-4 rounded-2xl sm:px-6 lg:px-8 mt-20">
+    <div class="  ">
+
+ <!-- Console viewer -->
+    <div class="flex justify-between items-center bg-white py-1  ">
+        <span class="text-slate-800 font-semibold  uppercase text-sm">Write JS Code</span>
+    <!-- Copy & Download Buttons -->
+<div class="flex gap-2">
+  <!-- Copy Button -->
+  <button class="copy-btn flex items-center gap-1 px-2 py-1 text-gray-700 hover:text-white hover:bg-gray-600 rounded-md shadow-sm transition duration-150"
+          onclick="copyCode(editor, this)">
+    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+      <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+    </svg>
+    <span>Copy code</span>
+  </button>
+
+  <!-- Download Button -->
+  <button onclick="downloadFile(editor.getValue(), 'script.js')"
+        class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 
+               hover:from-purple-600 hover:to-purple-700 text-white font-medium 
+               px-3 py-1.5 rounded-md shadow-md transition-all duration-200 transform hover:scale-105">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+  </svg>
+  Download
+</button>
+
+</div>
+</div>
+
+<!-- Filename Modal -->
+<!-- File Name Modal -->
+<div id="filenameModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-gray-800 text-white rounded-lg shadow-lg w-96 p-6 space-y-4">
+    <h2 class="text-lg font-semibold">Save File</h2>
+    <input id="filenameInput" type="text" 
+           class="w-full px-3 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" 
+           placeholder="Enter file name...">
+    <div class="flex justify-end gap-2">
+      <button onclick="closeFilenameModal()" 
+              class="px-4 py-2 rounded bg-gray-600 hover:bg-gray-500 transition">Cancel</button>
+      <button onclick="confirmFilename()" 
+              class="px-4 py-2 rounded bg-blue-600 hover:bg-blue-500 transition">Save</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+      <!-- Toolbar -->
+<div class="flex items-center justify-between px-4 py-2 rounded-t-xl bg-[#2d2d2d]">
+  <h2 class="text-[#9cdcfe] font-medium flex  items-center space-x-2">
+    <i class="fa-solid fa-code"></i>
+    <span>JavaScript Runner</span>
+  </h2>
+  <div class="space-x-3 flex ">
+
+
+
+    <!-- Run Button -->
+    <button onclick="runCode()" 
+      class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 
+             text-white px-5 py-2 rounded-lg text-sm font-semibold shadow-md 
+             transition-all duration-200 ease-in-out transform hover:scale-105 active:scale-95 
+             flex items-center space-x-2">
+      <i class="fa-solid fa-play"></i>
+      <span>Run</span>
+    </button>
+
+    <!-- Clear Button -->
+    <button onclick="clearConsole()" 
+      class="bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-400 hover:to-pink-500 
+             text-white px-5 py-2 rounded-lg text-sm font-semibold shadow-md 
+             transition-all duration-200 ease-in-out transform hover:scale-105 active:scale-95 
+             flex items-center space-x-2">
+      <i class="fa-solid fa-trash"></i>
+      <span>Clear</span>
+    </button>
+  </div>
+</div>
+
+
+      <!-- Editor -->
+      <div id="editor" class="h-80 "></div>
+
+      <!-- Console -->
+      <div id="console" class="bg-[#1e1e1e] h-48 overflow-y-auto px-4 py-3 font-mono text-sm rounded-b-xl"></div>
+    
+
+
+  </main>
+
+   <!-- Footer -->
+
+<!-- Professional Footer with Gradient -->
+<footer class="bg-gradient-to-r from-purple-600 to-indigo-600 text-gray-100 mt-12">
+  <div class=" mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Brand & Description -->
+      <div class="md:text-center">
+        <h2 class="text-2xl font-extrabold text-white mb-3 tracking-wide">CodeLite</h2>
+<p class="text-gray-200 text-sm leading-relaxed">
+  CodeLite is a lightweight online code editor for HTML, CSS, and JavaScript with a built-in JavaScript console.
+    It’s built for instant practice, debugging, and rapid prototyping, offering real-time live preview so you can write, test, and refine your code seamlessly.
+</p>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="md:text-center">
+        <h3 class="text-lg font-semibold text-white mb-3">Quick Links</h3>
+        <ul class="space-y-2 text-gray-200 text-sm">
+          <li><a href="index.html" class="hover:text-gray-50 transition">Home</a></li>
+          <li><a href="console.html" class="hover:text-gray-50 transition">Console</a></li>
+          <li><a href="docs.html" class="hover:text-gray-50 transition">Documentation</a></li>
+          <li><a href="about.html" class="hover:text-gray-50 transition">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-gray-50 transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Socials -->
+     <div class="md:text-center md:justify-self-end">
+  <h3 class="text-lg font-semibold text-white mb-3">Contact Us</h3>
+<p class="text-gray-200 text-sm mb-2">
+  <i class="fas fa-envelope mr-2"></i>
+  <a href="mailto:help.codelite@gmail.com" class="hover:underline">help.codelite@gmail.com</a>
+</p>
+
+<p class="text-gray-200 text-sm mb-2">
+  <i class="fa-brands fa-whatsapp mr-2"></i>
+  <a href="https://wa.me/8801234567890" target="_blank" class="hover:underline">+880 1234 567890</a>
+</p>
+
+
+  <div class="flex justify-center mt-8 space-x-4 mt-4">
+    <a href="https://www.facebook.com/CodeLiteStudio/" class="w-10 h-10 flex items-center justify-center bg-purple-700 rounded-full hover:bg-purple-500 transition-all duration-200">
+      <i class="fab fa-facebook-f text-white"></i>
+    </a>
+    <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-700 rounded-full hover:bg-blue-400 transition-all duration-200">
+      <i class="fab fa-twitter text-white"></i>
+    </a>
+    <a href="https://github.com/CodeLiteStudio" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-gray-600 transition-all duration-200">
+      <i class="fab fa-github text-white"></i>
+    </a>
+    <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-800 rounded-full hover:bg-blue-600 transition-all duration-200">
+      <i class="fab fa-linkedin-in text-white"></i>
+    </a>
+  </div>
+</div>
+
+
+    </div>
+   
+    <!-- Divider -->
+
+<div class="border-t border-purple-400 mt-10 pt-6 text-center text-gray-300 text-sm font-light tracking-wide space-y-1">
+  <p>&copy; 2025 <span class="font-semibold text-white">CodeLite</span>. All rights reserved.</p>
+  <p class="text-white">Developed by <a href="https://www.facebook.com/elius320" class="font-medium">Muhammad Elius</a></p>
+</div>
+
+ </div>
+
+</footer>
+
+  <!-- CodeMirror JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+
+ <script src="console.js"></script>
+</body>
+</html>

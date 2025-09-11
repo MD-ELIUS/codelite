@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <title>About CodeLite – Online HTML, CSS & JS Editor</title>
+
+ <meta name="description" content="Learn about CodeLite, its mission, vision, and features. Understand how CodeLite helps developers and learners code faster and smarter.">
+<meta name="keywords" content="About CodeLite, online code editor, HTML, CSS, JS, web development, CodeLite mission, CodeLite vision">
+<meta name="author" content="Mohammad Elius">
+
+<!-- Open Graph -->
+<meta property="og:title" content="About CodeLite – Online Code Editor">
+<meta property="og:description" content="Learn about CodeLite, its mission, vision, and features. Understand how CodeLite helps developers and learners code faster and smarter.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://codelite.netlify.app/about.html">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About CodeLite – Online Code Editor">
+<meta name="twitter:description" content="Learn about CodeLite, its mission, vision, and features. Understand how CodeLite helps developers and learners code faster and smarter.">
+
+<!-- Structured Data for About Page -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "About CodeLite",
+  "url": "https://codelite.netlify.app/about.html",
+  "description": "Learn about CodeLite, the lightweight online code editor for HTML, CSS, and JavaScript. Discover our mission, vision, and features.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "CodeLite",
+    "url": "https://codelite.netlify.app/"
+  }
+}
+</script>
+
+   <!-- Favicon -->
+   <link rel="icon" type="image/png" href="assets/logo2.png">
+
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body class="bg-white text-gray-900">
+
+   <!-- Navbar -->
+<header class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg fixed top-0 left-0 right-0 z-50">
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center space-x-2">
+        <a href="index.html" class="flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-md">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </a>
+        <a href="index.html" class="text-xl font-bold tracking-wide">CodeLite</a>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-6 text-sm font-medium">
+        <a href="index.html" class="hover:text-gray-200 transition">Home</a>
+        <a href="console.html" class="hover:text-gray-200 transition">Console</a>
+        <a href="docs.html" class="hover:text-gray-200 transition">Docs</a>
+        <a href="about.html" class="hover:text-gray-200 transition">About Us</a>
+        <a href="contact.html" class="hover:text-gray-200 transition">Contact</a>
+      </nav>
+
+      <!-- Hamburger Button (Mobile) -->
+      <div class="md:hidden flex items-center">
+        <button id="hamburgerBtn" class="focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden mt-2 flex flex-col space-y-2">
+      <a href="index.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Home</a>
+      <a href="console.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Console</a>
+      <a href="docs.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Docs</a>
+      <a href="about.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">About</a>
+      <a href="contact.html" class="block px-4 py-2 rounded hover:bg-purple-500 transition">Contact</a>
+    </div>
+  </div>
+</header>
+
+  <!-- Add top padding so content isn't hidden behind fixed navbar -->
+  <div class="pt-16"></div>
+
+<!-- MAIN ABOUT SECTION -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16 md:space-y-24">
+  
+  <!-- Hero / Introduction -->
+  <section class="text-center">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-purple-600 tracking-tight max-w-3xl mx-auto">
+      About CodeLite
+    </h1>
+    <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+      CodeLite is a modern, lightweight online code editor designed to simplify web development.
+      With instant live previews, a built-in JavaScript console for running, debugging, and testing scripts,
+      easy downloads, and a clean interface, it’s tailored for developers, students, and enthusiasts who want to code smarter and faster.
+    </p>
+</section>
+
+  
+<!-- Mission & Vision Section -->
+<section class="px-4 max-w-7xl mx-auto text-center">
+  <!-- Cards Flex -->
+  <div class="flex flex-col md:flex-row gap-8">
+    
+    <!-- Mission Card -->
+    <div class="flex-1 bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 text-left text-center">
+      <h3 class="text-2xl font-bold text-purple-600 mb-3 ">Our Mission</h3>
+      <p class="text-gray-700 text-base leading-relaxed">
+        To provide a simple and seamless coding experience in the browser.
+        CodeLite helps users learn, experiment, and prototype without setup hassles, with support for HTML, CSS, JS, and a built-in console for testing scripts instantly.
+      </p>
+    </div>
+    
+    <!-- Vision Card -->
+    <div class="flex-1 bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 text-left text-center">
+      <h3 class="text-2xl font-bold text-purple-600  mb-3">Our Vision</h3>
+      <p class="text-gray-700 text-base leading-relaxed">
+        To be the go-to online code editor for developers and learners,
+        making coding easy, fast, and accessible to everyone, including instant script testing through the integrated JavaScript console.
+      </p>
+    </div>
+    
+  </div>
+</section>
+
+  
+  <!-- Key Features -->
+<section class="space-y-6 max-w-6xl mx-auto">
+  <h2 class="text-2xl md:text-4xl font-bold text-purple-600 text-center">Why Choose CodeLite</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+    
+    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center md:text-left">
+      <h3 class="text-xl font-semibold mb-2 text-gray-900">Instant Live Preview</h3>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        See your HTML, CSS, and JavaScript code update in real-time as you type, improving productivity and learning efficiency. Integrated console allows instant script testing and debugging.
+      </p>
+    </div>
+    
+    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center md:text-left">
+      <h3 class="text-xl font-semibold mb-2 text-gray-900">Download with Ease</h3>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Download individual files or entire projects as ZIPs effortlessly. Keep your work organized and ready for sharing or deployment.
+      </p>
+    </div>
+    
+    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center md:text-left">
+      <h3 class="text-xl font-semibold mb-2 text-gray-900">Lightweight & Fast</h3>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        CodeLite runs smoothly in any modern browser without heavy dependencies, providing a fast and responsive coding environment.
+      </p>
+    </div>
+    
+    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center md:text-left">
+      <h3 class="text-xl font-semibold mb-2 text-gray-900">Professional Interface</h3>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Clean, minimal, and intuitive design allows you to focus on coding. Every feature is thoughtfully designed for efficiency.
+      </p>
+    </div>
+    
+    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center md:text-left">
+      <h3 class="text-xl font-semibold mb-2 text-gray-900">All-in-One Editor & Console</h3>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Write HTML, CSS, and JS in a single environment, test instantly with the built-in JavaScript console, and download or share your work without leaving the browser.
+      </p>
+    </div>
+    
+    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center md:text-left">
+      <h3 class="text-xl font-semibold mb-2 text-gray-900">Learning & Experimentation</h3>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Perfect for students, hobbyists, and professional developers to experiment, practice, and build prototypes quickly, with console support for debugging and testing scripts.
+      </p>
+    </div>
+    
+  </div>
+</section>
+
+  
+<!-- Developer / Credits -->
+<section class="py-12 max-w-3xl mx-auto text-center">
+  <h2 class="text-2xl md:text-4xl font-extrabold text-purple-600 mb-4">
+    About the Developer
+  </h2>
+  <p class="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
+    <span class="font-semibold text-gray-900">Muhammad Elius</span> is the sole developer of CodeLite, focused on creating intuitive and reliable tools that enable developers to write, test, and prototype web applications efficiently.
+  </p>
+  <a href="mailto:support@codelite.com" 
+     class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-200">
+    Contact Me
+  </a>
+</section>
+  
+</main>
+
+
+   <!-- Footer -->
+
+<!-- Professional Footer with Gradient -->
+<footer class="bg-gradient-to-r from-purple-600 to-indigo-600 text-gray-100 mt-12">
+  <div class=" mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Brand & Description -->
+      <div class="md:text-center">
+        <h2 class="text-2xl font-extrabold text-white mb-3 tracking-wide">CodeLite</h2>
+<p class="text-gray-200 text-sm leading-relaxed">
+  CodeLite is a lightweight online code editor for HTML, CSS, and JavaScript with a built-in JavaScript console.
+    It’s built for instant practice, debugging, and rapid prototyping, offering real-time live preview so you can write, test, and refine your code seamlessly.
+</p>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="md:text-center">
+        <h3 class="text-lg font-semibold text-white mb-3">Quick Links</h3>
+        <ul class="space-y-2 text-gray-200 text-sm">
+          <li><a href="index.html" class="hover:text-gray-50 transition">Home</a></li>
+          <li><a href="console.html" class="hover:text-gray-50 transition">Console</a></li>
+          <li><a href="docs.html" class="hover:text-gray-50 transition">Documentation</a></li>
+          <li><a href="about.html" class="hover:text-gray-50 transition">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-gray-50 transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Socials -->
+     <div class="md:text-center md:justify-self-end">
+  <h3 class="text-lg font-semibold text-white mb-3">Contact Us</h3>
+<p class="text-gray-200 text-sm mb-2">
+  <i class="fas fa-envelope mr-2"></i>
+  <a href="mailto:help.codelite@gmail.com" class="hover:underline">help.codelite@gmail.com</a>
+</p>
+
+<p class="text-gray-200 text-sm mb-2">
+  <i class="fa-brands fa-whatsapp mr-2"></i>
+  <a href="https://wa.me/8801234567890" target="_blank" class="hover:underline">+880 1234 567890</a>
+</p>
+
+
+  <div class="flex justify-center mt-8 space-x-4 mt-4">
+    <a href="https://www.facebook.com/CodeLiteStudio/" class="w-10 h-10 flex items-center justify-center bg-purple-700 rounded-full hover:bg-purple-500 transition-all duration-200">
+      <i class="fab fa-facebook-f text-white"></i>
+    </a>
+    <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-700 rounded-full hover:bg-blue-400 transition-all duration-200">
+      <i class="fab fa-twitter text-white"></i>
+    </a>
+    <a href="https://github.com/CodeLiteStudio" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-gray-600 transition-all duration-200">
+      <i class="fab fa-github text-white"></i>
+    </a>
+    <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-800 rounded-full hover:bg-blue-600 transition-all duration-200">
+      <i class="fab fa-linkedin-in text-white"></i>
+    </a>
+  </div>
+</div>
+
+
+    </div>
+   
+    <!-- Divider -->
+
+<div class="border-t border-purple-400 mt-10 pt-6 text-center text-gray-300 text-sm font-light tracking-wide space-y-1">
+  <p>&copy; 2025 <span class="font-semibold text-white">CodeLite</span>. All rights reserved.</p>
+  <p class="text-white">Developed by <a href="https://www.facebook.com/elius320" class="font-medium">Muhammad Elius</a></p>
+</div>
+
+ </div>
+
+</footer>
+
+
+<script src="about.js"></script>
+</body>
+</html>

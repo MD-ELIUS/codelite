@@ -6,37 +6,49 @@
   });
 
   // Initialize CodeMirror
-    const editor = CodeMirror(document.getElementById("editor"), {
-      mode: "javascript",
-      theme: "dracula",
-      autoCloseBrackets: true, // <-- auto-close (), [], {}
-      matchBrackets: true, // <-- highlight matching bracket
-      lineNumbers: true,
-      value: `// Try writing code
+// Initialize CodeMirror
+const editor = CodeMirror(document.getElementById("editor"), {
+  mode: "javascript",
+  theme: "dracula",
+  autoCloseBrackets: true, // <-- auto-close (), [], {}
+  matchBrackets: true, // <-- highlight matching bracket
+  lineNumbers: true,
+  value: `// Try writing code
 console.log("Hello, CodeLite!");
 let x = 5;
 console.warn("Be careful, x is", x);
 console.log("x * 2 =", x * 2);
-throw new Error("Test error!");` ,
-keyMap: "sublime",  // ✅ Add this line
-    });
+throw new Error("Test error!");`,
+  keyMap: "sublime", // ✅ already had
+  extraKeys: {
+    "Ctrl-Space": "autocomplete", // ✅ enable autocomplete manually
+    "Ctrl-/": "toggleComment" // ✅ enable comment toggle
+  }
+});
 
-    const consoleDiv = document.getElementById("console");
 
-    // Print messages
-    function customLog(message, type="log") {
-      const line = document.createElement("div");
-      const time = new Date().toLocaleTimeString();
-      line.className = {
-        log: "text-blue-300",
-        warn: "text-yellow-300",
-        error: "text-red-400 whitespace-pre-wrap"
-      }[type] || "text-gray-200";
-      line.textContent = (type === "error") ? message : `[${time}] ${message}`;
-      consoleDiv.appendChild(line);
-      consoleDiv.scrollTop = consoleDiv.scrollHeight;
-    }
+// ✅ Auto suggestion on typing (no need Ctrl+Space every time)
+editor.on("inputRead", function(cm, event) {
+  if (!cm.state.completionActive && event.text[0].match(/[\w\.]/)) {
+    CodeMirror.commands.autocomplete(cm, null, { completeSingle: false });
+  }
+});
 
+const consoleDiv = document.getElementById("console");
+
+// Print messages
+function customLog(message, type = "log") {
+  const line = document.createElement("div");
+  const time = new Date().toLocaleTimeString();
+  line.className = {
+    log: "text-blue-300",
+    warn: "text-yellow-300",
+    error: "text-red-400 whitespace-pre-wrap"
+  } [type] || "text-gray-200";
+  line.textContent = (type === "error") ? message : `[${time}] ${message}`;
+  consoleDiv.appendChild(line);
+  consoleDiv.scrollTop = consoleDiv.scrollHeight;
+}
 // Override console
 const originalLog = console.log;
 console.log = (...args) => {

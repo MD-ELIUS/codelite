@@ -34,22 +34,33 @@ throw new Error("Test error!");`
       consoleDiv.scrollTop = consoleDiv.scrollHeight;
     }
 
-    // Override console
-    const originalLog = console.log;
-    console.log = (...args) => {
-      originalLog(...args);
-      customLog(args.join(" "), "log");
-    };
-    const originalError = console.error;
-    console.error = (...args) => {
-      originalError(...args);
-      customLog(args.join(" "), "error");
-    };
-    const originalWarn = console.warn;
-    console.warn = (...args) => {
-      originalWarn(...args);
-      customLog(args.join(" "), "warn");
-    };
+// Override console
+const originalLog = console.log;
+console.log = (...args) => {
+  originalLog(...args); // still print in browser console
+  args.forEach(arg => {
+    let output = (typeof arg === "object") ? JSON.stringify(arg, null, 2) : arg;
+    customLog(output, "log");
+  });
+};
+
+const originalWarn = console.warn;
+console.warn = (...args) => {
+  originalWarn(...args);
+  args.forEach(arg => {
+    let output = (typeof arg === "object") ? JSON.stringify(arg, null, 2) : arg;
+    customLog(output, "warn");
+  });
+};
+
+const originalError = console.error;
+console.error = (...args) => {
+  originalError(...args);
+  args.forEach(arg => {
+    let output = (typeof arg === "object") ? JSON.stringify(arg, null, 2) : arg;
+    customLog(output, "error");
+  });
+};
 
     // Run code
     function runCode() {

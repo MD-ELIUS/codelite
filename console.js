@@ -9,6 +9,8 @@
     const editor = CodeMirror(document.getElementById("editor"), {
       mode: "javascript",
       theme: "dracula",
+      autoCloseBrackets: true, // <-- auto-close (), [], {}
+      matchBrackets: true, // <-- highlight matching bracket
       lineNumbers: true,
       value: `// Try writing code
 console.log("Hello, CodeLite!");

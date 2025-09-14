@@ -15,7 +15,8 @@ console.log("Hello, CodeLite!");
 let x = 5;
 console.warn("Be careful, x is", x);
 console.log("x * 2 =", x * 2);
-throw new Error("Test error!");`
+throw new Error("Test error!");` ,
+keyMap: "sublime",  // ✅ Add this line
     });
 
     const consoleDiv = document.getElementById("console");
